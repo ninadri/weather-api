@@ -19,17 +19,18 @@ const createWeatherCard = (cityName, weatherItem, index) => {
     // HTML for the main weather card
     return `<div class="details">
                     <h2>${cityName} (${formattedDate})</h2>
-                    <h4>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(
-                      2
-                    )}°C</h4>
+                    <h4>Temperature: ${(
+                      ((weatherItem.main.temp - 273.15) * 9) / 5 +
+                      32
+                    ).toFixed(2)}°F</h4>
                     <h4>Wind: ${weatherItem.wind.speed} M/S</h4>
                     <h4>Humidity: ${weatherItem.main.humidity}%</h4>
                 </div>
                 <div class="icon">
-                    <img src="https://openweathermap.org/img/wn/${
-                      weatherItem.weather[0].icon
-                    }@4x.png" alt="weather-icon">
-                    <h6>${weatherItem.weather[0].description}</h6>
+                <img src="https://openweathermap.org/img/wn/${
+                  weatherItem.weather[0].icon
+                }@4x.png" alt="weather-icon">
+                <h6>${weatherItem.weather[0].description}</h6>
                 </div>`;
   } else {
     // HTML for the other five day forecast card
@@ -38,9 +39,10 @@ const createWeatherCard = (cityName, weatherItem, index) => {
                     <img src="https://openweathermap.org/img/wn/${
                       weatherItem.weather[0].icon
                     }@4x.png" alt="weather-icon">
-                    <h6>Temp: ${(weatherItem.main.temp - 273.15).toFixed(
-                      2
-                    )}°C</h6>
+                    <h6>Temp: ${(
+                      ((weatherItem.main.temp - 273.15) * 9) / 5 +
+                      32
+                    ).toFixed(2)}°F</h6>
                     <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
                     <h6>Humidity: ${weatherItem.main.humidity}%</h6>
                 </li>`;
@@ -54,11 +56,11 @@ const getWeatherDetails = (cityName, lat, lon) => {
     .then((response) => response.json())
     .then((data) => {
       // Filter the forecasts to get only one forecast per day
-      const uniqueForecastDays = [];
-      const fiveDaysForecast = data.list.filter((forecast) => {
+      const today = new Date().getDate();
+      const fiveDaysForecast = data.list.filter((forecast, index) => {
         const forecastDate = new Date(forecast.dt_txt).getDate();
-        if (!uniqueForecastDays.includes(forecastDate)) {
-          return uniqueForecastDays.push(forecastDate);
+        if (forecastDate > today && index < 6) {
+          return true;
         }
       });
 
@@ -94,6 +96,7 @@ const getCityCoordinates = () => {
     });
 };
 
+// recent searches button
 function updateRecentSearches(cityName, lat, lon) {
   if (!recentSearch.querySelector(`button[data-city="${cityName}"]`)) {
     const button = document.createElement("button");

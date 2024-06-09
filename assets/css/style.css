@@ -53,6 +53,7 @@ h1 {
   );
   color: white;
 }
+/* recent searches buttons */
 .weather-input .location-btn {
   background: gray;
   margin: 8px 0 8px 0;
@@ -85,7 +86,7 @@ h1 {
 }
 
 .current-weather .icon img {
-  max-width: 60px;
+  max-width: 80px;
   margin-top: -10px;
 }
 .current-weather h2 {
@@ -93,29 +94,43 @@ h1 {
   font-style: bold;
 }
 
+/* styling for inside of forecast cards */
 .days-forecast h2 {
-  font-size: 1rem;
+  font-size: 30px;
   margin: 20px 0;
+}
+
+/* date inside the forecast cards */
+.days-forecast h3 {
+  font-size: 23px;
+}
+/* 
+forecast info inside cards */
+.days-forecast h6 {
+  font-size: 18px;
 }
 
 .weather-cards {
   display: flex;
+  width: 100%;
+  height: 300px;
   gap: 20px;
 }
 
 .weather-cards .card {
   list-style: none;
   color: white;
-  padding: 0 9px;
+  padding: 20px 9px 0 15px;
   background: rgb(4, 4, 43);
   width: calc(100% / 5);
 }
 
 .weather-cards .card img {
-  max-width: 30px;
+  max-width: 50px;
   margin: 3px 0 6px 0;
 }
 
+/* Recent searches button */
 .location-btn {
   display: block;
   margin: 5px 0;
@@ -125,4 +140,61 @@ h1 {
   padding: 10px;
   text-align: center;
   cursor: pointer;
+}
+
+/* Responsive design */
+/* Tablets - 5day forecast and current changes width */
+@media screen and (max-width: 992px) {
+  .weather-data {
+    width: 65%;
+  }
+
+  .weather-cards .card {
+    width: 400px;
+    height: 150px;
+  }
+  .days-forecast h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+}
+
+/* Large smartphones - size of buttons/input changes */
+@media screen and (max-width: 768px) {
+  .weather-input button,
+  .location-btn {
+    width: 150px;
+  }
+  .weather-cards {
+    gap: 5px;
+  }
+  .weather-input input {
+    width: 150px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+
+  .weather-input {
+    width: 155px;
+  }
+}
+
+/* Small smartphones - image placeholders change color */
+@media screen and (max-width: 576px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .weather-data {
+    width: 70%;
+  }
+  h3 {
+    font-size: 15px;
+  }
 }
