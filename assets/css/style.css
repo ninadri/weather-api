@@ -108,6 +108,7 @@ h1 {
 forecast info inside cards */
 .days-forecast h6 {
   font-size: 18px;
+  font-weight: 500;
 }
 
 .weather-cards {
