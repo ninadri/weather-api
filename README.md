@@ -22,7 +22,9 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
-## Mock-Up
+## Usage
+
+Users can search for a city's weather forecast using the input field. The weather forecast for the selected city will then be displayed. Additionally, a history of previously searched cities will be shown as clickable buttons, allowing users to quickly access weather information for those cities.
 
 The following image shows the web application's appearance and functionality:
 
