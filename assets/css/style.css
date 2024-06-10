@@ -23,6 +23,7 @@ h1 {
   padding: 30px;
 }
 
+/* search for a city column styling */
 .weather-input {
   width: 250px;
 }
@@ -94,7 +95,7 @@ h1 {
   font-style: bold;
 }
 
-/* styling for inside of forecast cards */
+/*styling for inside of forecast cards */
 .days-forecast h2 {
   font-size: 30px;
   margin: 20px 0;
@@ -111,6 +112,7 @@ forecast info inside cards */
   font-weight: 500;
 }
 
+/* forecast cards */
 .weather-cards {
   display: flex;
   width: 100%;
@@ -150,34 +152,49 @@ forecast info inside cards */
     width: 65%;
   }
 
-  .weather-cards .card {
-    width: 400px;
-    height: 150px;
+  .weather-cards {
+    width: 100%;
+    height: 200px;
+    gap: 10px;
   }
   .days-forecast h2 {
-    font-size: 22px;
-  }
-  h3 {
-    font-size: 15px;
+    font-size: 25px;
   }
 
-  h6 {
+  .days-forecast h3 {
+    font-size: 16px;
+  }
+
+  .days-forecast h6 {
     font-size: 12px;
+    font-weight: 500;
   }
 }
 
 /* Large smartphones - size of buttons/input changes */
 @media screen and (max-width: 768px) {
+  .weather-data {
+    width: 70%;
+  }
+
   .weather-input button,
   .location-btn {
     width: 150px;
   }
-  .weather-cards {
-    gap: 5px;
-  }
+
   .weather-input input {
     width: 150px;
   }
+
+  .weather-cards {
+    height: 200px;
+    gap: 5px;
+  }
+
+  .days-forecast h3 {
+    font-size: 12px;
+  }
+
   h2 {
     font-size: 20px;
   }
@@ -193,9 +210,28 @@ forecast info inside cards */
     flex-direction: column-reverse;
   }
   .weather-data {
-    width: 70%;
+    width: 100%;
   }
-  h3 {
-    font-size: 15px;
+
+  .weather-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .weather-input h2 {
+    font-size: 18px;
+  }
+  .weather-input .location-btn {
+    margin-left: 100px;
+  }
+
+  .weather-input .separator {
+    display: none;
+  }
+
+  .search {
+    margin: 10px 10px 20px 20px;
   }
 }
