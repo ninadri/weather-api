@@ -3,16 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Header of Page */
 h1 {
   color: white;
-  text-align: center;
+  text-align: left;
   font-size: 1.5rem;
-  padding: 10px 0;
+  padding: 10px 0 10px 15px;
   background-image: linear-gradient(
     to right,
     hsl(236, 68%, 43%),
@@ -23,14 +23,11 @@ h1 {
 .container {
   display: flex;
   gap: 35px;
+  margin-top: 50px;
   padding: 30px;
 }
 
-/* search for a city column styling */
-.weather-input {
-  width: 250px;
-}
-
+/* Search column */
 .weather-input input {
   width: 100%;
   height: 46px;
@@ -40,15 +37,28 @@ h1 {
   font-size: 1rem;
 }
 
-.weather-input button,
-.location-btn {
-  width: 250px;
-  padding: 9px 0;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
+.weather-input {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
+/* Buttons */
+.weather-input input,
+.weather-input button,
+.weather-input .location-btn {
+  width: 100%;
+  height: 46px;
+  font-size: 1rem;
+  padding: 0 17px;
+  border-radius: 6px;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Styles for search button */
 .weather-input button {
   background-image: linear-gradient(
     to right,
@@ -56,12 +66,16 @@ h1 {
     rgb(65, 65, 155)
   );
   color: white;
+  cursor: pointer;
 }
-/* recent searches buttons */
+
+/* Styles for saved city/location buttons */
 .weather-input .location-btn {
-  background: gray;
-  margin: 8px 0 8px 0;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
 }
+
 .weather-input .separator {
   height: 1px;
   width: 100%;
@@ -69,41 +83,37 @@ h1 {
   background: gray;
 }
 
-/* fits weather data container across page */
+/* Weather data layout */
 .weather-data {
   width: 100%;
 }
 
-.weather-data h4 {
-  margin-top: 12px;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
 .current-weather {
-  display: flex;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
+  display: none;
+  border: 1px solid black;
   padding: 20px 70px 20px 20px;
   justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .current-weather .icon img {
   max-width: 80px;
   margin-top: -10px;
 }
+
 .current-weather h2 {
   font-size: 2rem;
-  font-style: bold;
+  font-weight: bold;
 }
+
 .card,
-.current-weather,
 input,
 button {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 small {
   display: block;
   font-size: 0.8rem;
@@ -111,24 +121,13 @@ small {
   margin-top: 4px;
 }
 
-/*styling for inside of forecast cards */
+/* Forecast text styles */
 .days-forecast h2 {
   font-size: 30px;
   margin: 20px 0;
 }
 
-/* date inside the forecast cards */
-.days-forecast h3 {
-  font-size: 23px;
-}
-/* 
-forecast info inside cards */
-.days-forecast h6 {
-  font-size: 18px;
-  font-weight: 500;
-}
-
-/* forecast cards */
+/* Forecast cards */
 .weather-cards {
   display: flex;
   width: 100%;
@@ -137,12 +136,12 @@ forecast info inside cards */
 }
 
 .weather-cards .card {
-  background: linear-gradient(135deg, #3a3a90, #5f5fc4);
+  background: rgb(4, 4, 43);
   list-style: none;
   color: white;
   padding: 20px 9px 0 15px;
-  background: rgb(4, 4, 43);
   width: calc(100% / 5);
+  animation: pulse 3s infinite;
 }
 
 .weather-cards .card img {
@@ -150,36 +149,66 @@ forecast info inside cards */
   margin: 3px 0 6px 0;
 }
 
-/* Recent searches button */
-.location-btn {
-  display: block;
-  margin: 5px 0;
-  background-color: grey;
-  color: white;
-  border: none;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-}
-
+/* Hover effect */
 button:hover {
   background-color: #3a3a90;
   transform: scale(1.03);
   transition: 0.2s ease;
 }
 
-/* Responsive design */
-/* Tablets - 5day forecast and current changes width */
+/* Responsive styles */
 @media screen and (max-width: 992px) {
-  .weather-data {
-    width: 65%;
+  .container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 50px;
+  }
+
+  .weather-input {
+    width: 80%;
+    max-width: 100%;
+  }
+
+  .weather-input .separator {
+    display: none;
+  }
+
+  #recent-searches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .search-btn {
+    width: 150px;
+    height: 40px;
+    font-size: 0.9rem;
   }
 
   .weather-cards {
     width: 100%;
-    height: 200px;
-    gap: 10px;
+    display: block;
+    height: auto;
+    gap: 0;
   }
+
+  .weather-cards .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .weather-cards .card img {
+    order: 2;
+    max-width: 50px;
+    margin: 0;
+  }
+
   .days-forecast h2 {
     font-size: 25px;
   }
@@ -190,76 +219,9 @@ button:hover {
 
   .days-forecast h6 {
     font-size: 12px;
-    font-weight: 500;
   }
 }
 
-/* Large smartphones - size of buttons/input changes */
-@media screen and (max-width: 768px) {
-  .weather-data {
-    width: 70%;
-  }
-
-  .weather-input button,
-  .location-btn {
-    width: 150px;
-  }
-
-  .weather-input input {
-    width: 150px;
-  }
-
-  .weather-cards {
-    height: 200px;
-    gap: 5px;
-  }
-
-  .days-forecast h3 {
-    font-size: 12px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  .weather-input {
-    width: 155px;
-  }
-}
-
-/* Small smartphones - image placeholders change color */
-@media screen and (max-width: 576px) {
-  .container {
-    flex-direction: column-reverse;
-  }
-  .weather-data {
-    width: 100%;
-  }
-
-  .weather-input {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .weather-input h2 {
-    font-size: 18px;
-  }
-  .weather-input .location-btn {
-    margin-left: 100px;
-  }
-
-  .weather-input .separator {
-    display: none;
-  }
-
-  .search {
-    margin: 10px 10px 20px 20px;
-  }
-}
-
-/* weather icon animation */
 @keyframes pulse {
   0%,
   100% {
@@ -268,8 +230,4 @@ button:hover {
   50% {
     transform: scale(1.1);
   }
-}
-
-.weather-cards .card img {
-  animation: pulse 3s infinite;
 }

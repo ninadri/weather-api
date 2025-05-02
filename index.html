@@ -8,72 +8,30 @@
   </head>
 
   <body>
-   <h1> Weather Dashboard</h1>
+    <h1>Weather Dashboard</h1>
     <div class="container">
       <div class="weather-input">
-      <div class="search">
-        <h2> Search for a City:</h2>
-        <input class="city-input" type="text" placeholder="San Diego">
-        <button class="search-btn">Search</button>
-        
-      </div>
-      <div class="separator"></div>
-      <div id="recent-searches"></div>
-      
-    </div>
-       <div class="weather-data">
-        <div class="current-weather">
-          <div class="details">
-            <h2></h2>
-            <h4>Temperature: </h4>
-            <h4>Wind: </h4>
-            <h4>Humidity:</h4>
-          </div>
-          <div class="icon">
-            <img src="sun.png" alt="image of the sun">
-          </div>
+        <div class="search">
+          <h2>Search for a City:</h2>
+          <input class="city-input" type="text" placeholder="San Diego" />
+          <button class="search-btn">Search</button>
         </div>
+        <div class="separator"></div>
+        <div id="recent-searches"></div>
+      </div>
 
-    <div class="days-forecast">
-    <h2>5-Day Forecast:</h2>
-    <ul class="weather-cards">
-      <li class="card">
-        <h2></h2>
-        <img src="sun.png" alt="image of the weather">
-        <h4></h4>
-        <h4></h4>
-        <h4></h4>
-      </li>
-      <li class="card">
-        <h2></h2>
-        <img src="sun.png" alt="image of the weather">
-        <h4></h4>
-        <h4></h4>
-        <h4></h4>
-      </li>
-      <li class="card">
-        <h2></h2>
-        <img src="sun.png" alt="image of the weather">
-        <h4></h4>
-        <h4></h4>
-        <h4></h4>
-      </li>
-      <li class="card">
-        <h2></h2>
-        <img src="sun.png" alt="image of the weather">
-        <h4></h4>
-        <h4></h4>
-        <h4></h4>
-      </li>
-      <li class="card">
-        <h2></h2>
-        <img src="sun.png" alt="image of the weather">
-        <h4></h4>
-        <h4></h4>
-        <h4></h4>
-      </li>
-    </ul>
+      <div class="weather-data">
+        <!-- Current weather will be inserted here dynamically -->
+        <div class="current-weather"></div>
+
+        <div class="days-forecast">
+          <h2>5-Day Forecast:</h2>
+          <!-- Forecast cards will be dynamically inserted here -->
+          <ul class="weather-cards"></ul>
+        </div>
+      </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
