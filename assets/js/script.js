@@ -58,6 +58,7 @@ const getCurrentWeather = (cityName, lat, lon) => {
         weather: data.weather,
       };
       currentWeatherDiv.innerHTML = createWeatherCard(cityName, weatherItem, 0);
+      currentWeatherDiv.style.display = "flex";
     });
 };
 
