@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* Header of Page */
 h1 {
@@ -94,6 +97,19 @@ h1 {
   font-size: 2rem;
   font-style: bold;
 }
+.card,
+.current-weather,
+input,
+button {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+small {
+  display: block;
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 4px;
+}
 
 /*styling for inside of forecast cards */
 .days-forecast h2 {
@@ -121,6 +137,7 @@ forecast info inside cards */
 }
 
 .weather-cards .card {
+  background: linear-gradient(135deg, #3a3a90, #5f5fc4);
   list-style: none;
   color: white;
   padding: 20px 9px 0 15px;
@@ -143,6 +160,12 @@ forecast info inside cards */
   padding: 10px;
   text-align: center;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #3a3a90;
+  transform: scale(1.03);
+  transition: 0.2s ease;
 }
 
 /* Responsive design */
@@ -234,4 +257,19 @@ forecast info inside cards */
   .search {
     margin: 10px 10px 20px 20px;
   }
+}
+
+/* weather icon animation */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.weather-cards .card img {
+  animation: pulse 3s infinite;
 }
